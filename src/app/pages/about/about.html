@@ -1,0 +1,39 @@
+<div class="container py-4 py-md-5">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-10 col-lg-8">
+
+      <div class="about-container px-3 px-md-4">
+
+        <h1 class="title text-center mb-4">{{ title }}</h1>
+
+        <!-- Intro Card -->
+        <div class="card mb-3">
+          <p>
+            This is a simple and clean <b>To-Do App</b> built using Angular.
+            It helps you manage your daily tasks in an organized way.
+          </p>
+        </div>
+
+        <!-- Features -->
+        <div class="card mb-3">
+          <h3>Features</h3>
+          <ul>
+            <li *ngFor="let item of features">{{ item }}</li>
+          </ul>
+        </div>
+
+        <!-- Purpose -->
+        <div class="card mb-3">
+          <h3>Purpose</h3>
+          <p>{{ purpose }}</p>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer mt-4">
+          Built using Angular
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

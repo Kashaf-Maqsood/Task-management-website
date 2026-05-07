@@ -1,0 +1,55 @@
+<ul class="list-unstyled">
+  <li class="task-card flex-column flex-sm-row align-items-start align-items-sm-center">
+
+    <!-- LEFT SIDE -->
+    <div class="left w-100 w-sm-auto">
+      <input
+        type="checkbox"
+        (change)="toggle()"
+        [checked]="task.completed"
+        aria-label="Toggle task completion"
+      >
+
+      <!-- Normal view -->
+      <span *ngIf="!isEditing"
+            [ngClass]="{ done: task.completed }">
+        {{ task.title }}
+        <span class="repeat-badge" *ngIf="task.repeatDaily">🔁 Daily</span>
+      </span>
+
+      <!-- Edit mode -->
+      <input *ngIf="isEditing"
+             [(ngModel)]="editedTitle"
+             class="edit-input"
+             placeholder="Edit task title"
+             aria-label="Edit task title">
+    </div>
+
+    <!-- RIGHT SIDE BUTTONS -->
+    <div class="actions w-100 w-sm-auto justify-content-end flex-wrap">
+
+      <button (click)="toggleRepeat()"
+              class="btn repeat"
+              [ngClass]="{ active: task.repeatDaily }">
+        🔁
+      </button>
+
+      <button *ngIf="!isEditing"
+              (click)="startEdit()"
+              class="btn edit">Edit</button>
+
+      <button *ngIf="isEditing"
+              (click)="saveEdit()"
+              class="btn save">Save</button>
+
+      <button *ngIf="isEditing"
+              (click)="cancelEdit()"
+              class="btn cancel">Cancel</button>
+
+      <button (click)="delete()"
+              class="btn delete">Delete</button>
+
+    </div>
+
+  </li>
+</ul>

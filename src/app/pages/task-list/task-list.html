@@ -1,0 +1,71 @@
+<div class="page-wrapper">
+  <div class="content-box">
+
+    <h1 class="title">My Tasks</h1>
+
+    <!-- Stats -->
+    <div class="stats">
+      <div class="card">Total: {{ totalTasks() }}</div>
+      <div class="card done">Done: {{ completedTasks() }}</div>
+      <div class="card pending">Pending: {{ pendingTasks() }}</div>
+    </div>
+
+    <!-- Instructions -->
+    <div class="instructions">
+      <h3 class="instructions-heading">📋 How to Use</h3>
+      <div class="instruction-item"
+           *ngFor="let step of instructions; let i = index"
+           [style.animation-delay]="i * 0.15 + 's'">
+        <span class="icon">{{ step.icon }}</span>
+        <span class="text">{{ step.text }}</span>
+      </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div
+      *ngIf="toastMessage"
+      [ngClass]="toastType"
+      class="toast position-fixed top-0 end-0 m-3 d-block"
+      style="z-index: 9999; animation: fadeIn 0.3s ease;">
+      {{ toastMessage }}
+    </div>
+
+    <!-- Task Form -->
+    <app-task-form (searchChange)="updateSearch($event)"></app-task-form>
+
+    <!-- Task List -->
+    <ul class="task-list list-unstyled">
+      <li *ngFor="let task of getFilteredTasks(); let i = index">
+        <app-task-item
+          [task]="task"
+          [index]="i"
+          (taskCompleted)="onTaskCompleted()"
+          (taskDeleted)="onTaskDeleted()">
+        </app-task-item>
+      </li>
+    </ul>
+
+    <!-- Empty -->
+    <div *ngIf="taskService.tasks.length === 0" class="empty">
+      <p>No tasks yet</p>
+    </div>
+
+    <!-- Report Section -->
+    <div class="report-section">
+      <h2 class="report-title">📊 Reports</h2>
+      <div class="report-buttons">
+        <button class="btn-report daily" (click)="showReport('daily')">
+          📅 Daily Report
+        </button>
+      </div>
+      <div class="report-box" *ngIf="reportData">
+        <h3>{{ reportData.title }}</h3>
+        <p>📝 Total Tasks: <strong>{{ reportData.total }}</strong></p>
+        <p>✅ Completed: <strong>{{ reportData.completed }}</strong></p>
+        <p>⏳ Pending: <strong>{{ reportData.pending }}</strong></p>
+        <p>📈 Completion Rate: <strong>{{ reportData.rate }}%</strong></p>
+      </div>
+    </div>
+
+  </div>
+</div>

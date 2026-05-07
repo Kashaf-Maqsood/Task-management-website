@@ -1,0 +1,122 @@
+/* Card container */
+.task-card {
+  list-style: none;
+  background: #ffffff;
+  padding: 12px 15px;
+  margin: 10px 0;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.2s ease;
+  gap: 8px;
+}
+
+/* Hover effect */
+.task-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* Left section */
+.left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  min-width: 0;
+}
+
+/* Task text */
+.left span {
+  font-size: 15px;
+  font-weight: 500;
+  word-break: break-word;
+}
+
+/* Completed task */
+.done {
+  text-decoration: line-through;
+  color: #888;
+}
+
+/* Edit input */
+.edit-input {
+  padding: 6px 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  width: 100%;
+}
+
+.edit-input:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+/* Right side buttons */
+.actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+/* Base button — scoped to avoid Bootstrap conflict */
+.task-card .btn {
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  transition: 0.2s;
+  white-space: nowrap;
+}
+
+.task-card .btn:hover { opacity: 0.85; }
+
+/* Button colors */
+.task-card .btn.edit   { background: #ffc107; color: #000; }
+.task-card .btn.save   { background: #28a745; color: white; }
+.task-card .btn.cancel { background: #6c757d; color: white; }
+.task-card .btn.delete { background: #dc3545; color: white; }
+
+/* Repeat button */
+.task-card .btn.repeat {
+  background: #f1f1f1;
+  color: #444;
+  border: 1px solid #ccc;
+}
+
+/* Repeat active */
+.task-card .btn.repeat.active {
+  background: #fff3cd;
+  color: #856404;
+  border: 1px solid #ffc107;
+}
+
+/* Repeat badge */
+.repeat-badge {
+  font-size: 11px;
+  background: #fff3cd;
+  color: #856404;
+  border-radius: 4px;
+  padding: 2px 6px;
+  margin-left: 6px;
+  font-weight: bold;
+}
+
+/* Checkbox */
+input[type="checkbox"] {
+  cursor: pointer;
+  transform: scale(1.2);
+}
+
+/* Only font tweaks — Bootstrap handles layout */
+@media (max-width: 480px) {
+  .left span      { font-size: 14px; }
+  .edit-input     { font-size: 13px; padding: 6px; }
+  .repeat-badge   { font-size: 10px; padding: 2px 4px; }
+  .task-card .btn { font-size: 12px; padding: 6px 10px; }
+}

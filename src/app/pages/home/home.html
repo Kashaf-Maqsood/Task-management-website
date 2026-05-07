@@ -1,0 +1,48 @@
+<div class="home-container container-fluid">
+  <div class="row justify-content-center mx-0">
+    <div class="col-12 col-md-11 col-lg-9 col-xl-8">
+      <div class="home-content text-center">
+
+        <div class="clock-box mb-4">
+          <div class="clock">{{ currentTime }}</div>
+          <div class="date">{{ currentDate }}</div>
+        </div>
+
+        <h1 class="greeting-text mb-3" *ngIf="userName; else noName">
+          {{ getGreeting() }}, {{ userName }} 👋
+        </h1>
+
+        <ng-template #noName>
+          <h1 class="greeting-text mb-3">{{ getGreeting() }} 👋</h1>
+        </ng-template>
+
+        <p class="quote mb-4">"Stay consistent, and success will follow you."</p>
+
+        <div class="input-box mb-4 d-flex justify-content-center">
+          <input
+            type="text"
+            class="form-control name-input"
+            placeholder="Enter your name..."
+            [(ngModel)]="userName"
+            (input)="saveName()"
+          />
+        </div>
+
+        <div class="row justify-content-center g-3">
+          <div class="col-12 col-sm-6 col-lg-4">
+            <button class="btn btn-tasks w-100" (click)="goToTasks()">
+              🚀 Go to Tasks
+            </button>
+          </div>
+
+          <div class="col-12 col-sm-6 col-lg-4">
+            <button class="btn btn-about w-100" (click)="goToAbout()">
+              ℹ️ About App
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
