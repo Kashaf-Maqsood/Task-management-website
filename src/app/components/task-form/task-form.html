@@ -22,10 +22,11 @@
   <!-- Search Section -->
   <div class="search-section d-flex gap-2">
     <input
-      [(ngModel)]="search"
-      placeholder="Search tasks..."
-      class="input form-control"
-    >
+  [(ngModel)]="search"
+  (ngModelChange)="onSearch()"
+  placeholder="Search tasks..."
+  class="input form-control"
+>
     <button (click)="clearSearch()" class="clear-btn">Clear</button>
   </div>
 
