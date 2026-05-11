@@ -12,6 +12,16 @@
   max-width: 600px;
 }
 
+
+.sticky-header {
+  position: sticky;
+  top: 60px; /* match your navbar height */
+  background: white;
+  z-index: 100;
+  padding-bottom: 10px;
+  padding-top: 6px;
+}
+
 /* Force task-form to fill content-box */
 app-task-form {
   display: block;

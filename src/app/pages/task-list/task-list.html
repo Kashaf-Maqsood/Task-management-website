@@ -1,14 +1,14 @@
 <div class="page-wrapper">
   <div class="content-box">
 
-    <h1 class="title">My Tasks</h1>
-
-    <!-- Stats -->
-    <div class="stats">
-      <div class="card">Total: {{ totalTasks() }}</div>
-      <div class="card done">Done: {{ completedTasks() }}</div>
-      <div class="card pending">Pending: {{ pendingTasks() }}</div>
-    </div>
+    <div class="sticky-header">
+  <h1 class="title">My Tasks</h1>
+  <div class="stats">
+    <div class="card">Total: {{ totalTasks() }}</div>
+    <div class="card done">Done: {{ completedTasks() }}</div>
+    <div class="card pending">Pending: {{ pendingTasks() }}</div>
+  </div>
+</div>
 
     <!-- Instructions -->
     <div class="instructions">
@@ -25,7 +25,7 @@
     <div
       *ngIf="toastMessage"
       [ngClass]="toastType"
-      class="toast position-fixed top-0 end-0 m-3 d-block"
+      class="toast position-fixed top-0 inset-e-0 m-3 d-block"
       style="z-index: 9999; animation: fadeIn 0.3s ease;">
       {{ toastMessage }}
     </div>

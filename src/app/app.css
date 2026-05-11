@@ -3,7 +3,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 15px 30px;
-  background: linear-gradient(135deg, #dda2cc, #673256);
+  background: linear-gradient(135deg, #8d4578, #e9a1c8);
   color: white;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   position: sticky;
@@ -20,6 +20,7 @@
   display: flex;
   gap: 20px;
   color: white;
+  background: transparent;
 }
 .page-content {
   padding-top: 20px;

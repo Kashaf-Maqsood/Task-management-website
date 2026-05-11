@@ -7,10 +7,13 @@
   border-radius: 10px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   transition: 0.2s ease;
   gap: 8px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* Hover effect */
@@ -22,23 +25,33 @@
 /* Left section */
 .left {
   display: flex;
+  flex-direction: row;
   align-items: center;
   gap: 10px;
   flex: 1;
   min-width: 0;
+  width: 100%;
+  overflow: visible;
 }
 
 /* Task text */
-.left span {
+.task-title {
   font-size: 15px;
   font-weight: 500;
+  color: #333 !important;
+  display: inline-block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  white-space: normal;
   word-break: break-word;
+  flex: 1;
+  min-width: 0;
 }
 
 /* Completed task */
 .done {
   text-decoration: line-through;
-  color: #888;
+  color: #888 !important;
 }
 
 /* Edit input */
@@ -58,11 +71,12 @@
 /* Right side buttons */
 .actions {
   display: flex;
+  flex-direction: row;
   gap: 8px;
   flex-shrink: 0;
 }
 
-/* Base button — scoped to avoid Bootstrap conflict */
+/* Base button */
 .task-card .btn {
   border: none;
   padding: 6px 10px;
@@ -89,7 +103,6 @@
   border: 1px solid #ccc;
 }
 
-/* Repeat active */
 .task-card .btn.repeat.active {
   background: #fff3cd;
   color: #856404;
@@ -111,12 +124,12 @@
 input[type="checkbox"] {
   cursor: pointer;
   transform: scale(1.2);
+  flex-shrink: 0;
 }
 
-/* Only font tweaks — Bootstrap handles layout */
 @media (max-width: 480px) {
-  .left span      { font-size: 14px; }
-  .edit-input     { font-size: 13px; padding: 6px; }
-  .repeat-badge   { font-size: 10px; padding: 2px 4px; }
-  .task-card .btn { font-size: 12px; padding: 6px 10px; }
+  .task-title        { font-size: 14px; }
+  .edit-input        { font-size: 13px; padding: 6px; }
+  .repeat-badge      { font-size: 10px; padding: 2px 4px; }
+  .task-card .btn    { font-size: 12px; padding: 6px 10px; }
 }

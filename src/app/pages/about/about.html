@@ -1,10 +1,13 @@
-<div class="container py-4 py-md-5">
+<div class="container pt-5 mt-4"> 
   <div class="row justify-content-center">
     <div class="col-12 col-md-10 col-lg-8">
 
       <div class="about-container px-3 px-md-4">
 
-        <h1 class="title text-center mb-4">{{ title }}</h1>
+        <!-- 👇 ADD this wrapper div around the title only -->
+        <div class="sticky-title">
+          <h1 class="title text-center mb-4">{{ title }}</h1>
+        </div>
 
         <!-- Intro Card -->
         <div class="card mb-3">

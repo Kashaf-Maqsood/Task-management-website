@@ -6,6 +6,17 @@
   max-width: 800px;
   margin: 40px auto;
   align-items: center;
+  margin-top: 80px;   
+}
+
+.sticky-title {
+  position: sticky;
+  top: 60px;          /* match your navbar height */
+  background: linear-gradient(135deg, #eef2ff, #f8fafc);
+  z-index: 100;
+  padding: 10px 0;
+  text-align: center;
+  margin-bottom: 16px;
 }
 
 /* Title */
@@ -15,6 +26,8 @@
   color: #1e293b;
   letter-spacing: 0.5px;
 }
+
+
 
 /* Card */
 .card {
